@@ -13,6 +13,10 @@
                 class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
                 placeholder="Name"
             >
+
+            @error('name')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="mt-2">
@@ -23,6 +27,10 @@
                 class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
                 placeholder="Email address"
             >
+
+            @error('email')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="mt-2">
@@ -33,6 +41,10 @@
                 class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
                 placeholder="Password"
             >
+
+            @error('password')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="mt-2">
@@ -43,6 +55,10 @@
                 class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
                 placeholder="Repeat password"
             >
+
+            @error('password_confirmation')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+            @enderror
         </div>
 
         <div class="mt-4">
