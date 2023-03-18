@@ -5,70 +5,45 @@
     >
         @csrf
 
-        <div>
-            <input
-                id="name"
-                name="name"
-                type="text"
-                class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
-                placeholder="Name"
-            >
+        <x-text-input
+            id="name"
+            name="name"
+            placeholder="Name"
+            value="{{ old('name') }}"
+            error="{{ $errors->first('name') }}"
+        ></x-text-input>
 
-            @error('name')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
-            @enderror
-        </div>
+        <x-text-input
+            class="mt-2"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email address"
+            value="{{ old('email') }}"
+            error="{{ $errors->first('email') }}"
+        ></x-text-input>
 
-        <div class="mt-2">
-            <input
-                id="email"
-                name="email"
-                type="email"
-                class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
-                placeholder="Email address"
-            >
+        <x-text-input
+            class="mt-2"
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Password"
+            value="{{ old('password') }}"
+            error="{{ $errors->first('password') }}"
+        ></x-text-input>
 
-            @error('email')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
-            @enderror
-        </div>
+        <x-text-input
+            class="mt-2"
+            id="password_confirmation"
+            name="password_confirmation"
+            type="password"
+            placeholder="Repeat password"
+            value="{{ old('password_confirmation') }}"
+            error="{{ $errors->first('password_confirmation') }}"
+        ></x-text-input>
 
-        <div class="mt-2">
-            <input
-                id="password"
-                name="password"
-                type="password"
-                class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
-                placeholder="Password"
-            >
-
-            @error('password')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <div class="mt-2">
-            <input
-                id="password_confirmation"
-                name="password_confirmation"
-                type="password"
-                class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
-                placeholder="Repeat password"
-            >
-
-            @error('password_confirmation')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
-            @enderror
-        </div>
-
-        <div class="mt-4">
-            <button
-                type="submit"
-                class="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-2 py-1.5 text-sm focus:outline-none"
-            >
-                Sign Up
-            </button>
-        </div>
+        <x-button class="mt-4" type="submit">Sign up</x-button>
     </form>
 
     <x-slot:footer>

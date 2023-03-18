@@ -5,38 +5,24 @@
     >
         @csrf
 
-        <div>
-            <input
-                id="email"
-                name="email"
-                type="email"
-                class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
-                placeholder="Email address"
-            >
+        <x-text-input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email address"
+            error="{{ $errors->first('email') }}"
+        ></x-text-input>
 
-            @error('email')
-                <span class="text-red-500 text-xs">{{ $message }}</span>
-            @enderror
-        </div>
+        <x-text-input
+            id="password"
+            class="mt-2"
+            name="password"
+            type="password"
+            placeholder="Password"
+            error="{{ $errors->first('password') }}"
+        ></x-text-input>
 
-        <div class="mt-2">
-            <input
-                id="password"
-                name="password"
-                type="password"
-                class="w-full border border-gray-200 focus:border-gray-300 bg-gray-50 rounded-sm px-2 py-1.5 text-sm focus:outline-none"
-                placeholder="Password"
-            >
-        </div>
-
-        <div class="mt-4">
-            <button
-                type="submit"
-                class="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-lg px-2 py-1.5 text-sm focus:outline-none"
-            >
-                Log in
-            </button>
-        </div>
+        <x-button class="mt-4" type="submit">Log in</x-button>
     </form>
 
     <x-slot:footer>
