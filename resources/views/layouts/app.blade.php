@@ -10,15 +10,15 @@
     </head>
 
     <body class="font-sans antialiased">
-        <div class="flex min-h-screen items-center justify-center bg-white">
-            <div class="text-center">
-                <h1 class="text-xl font-bold">Exchangeagram</h1>
+        <div class="min-h-screen bg-white">
+            @include('layouts.navigation')
 
-                <div class="space-x-1.5">
-                    <a class="text-blue-600" href="{{ route('login') }}">Login</a>
-                    <a class="text-blue-600" href="{{ route('register') }}">Register</a>
+            <!-- Page Content -->
+            <main>
+                <div class="max-w-2xl w-full h-full mx-auto py-8">
+                    {{ $slot }}
                 </div>
-            </div>
+            </main>
         </div>
     </body>
 </html>
