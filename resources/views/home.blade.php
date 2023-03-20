@@ -244,15 +244,17 @@
         <div>
             <!-- Suggested to follow -->
             <nav class="ml-6 w-auto overflow-hidden">
+                <!-- Suggested to follow > header -->
                 <div class="flex items-center justify-between">
-                    <p class="text-sm font-medium text-gray-400">Suggestions for you</p>
+                    <h4 class="text-sm font-medium text-gray-400">Suggestions for you</h4>
 
                     <a class="text-sm font-semibold text-gray-900 hover:text-gray-600"
                         href="#">
                         See all
                     </a>
                 </div>
-
+            
+                <!-- Suggested to follow > accounts list -->
                 <ul class="mt-3 flex flex-col space-y-2.5">
                     @foreach (range(1, 5) as $item)
                         <li>
@@ -288,6 +290,7 @@
                         </li>
                     @endforeach
                 </ul>
+                <!--/. Suggested to follow > accounts list -->
             </nav>
             <!--/. Suggested to follow -->
         </div>

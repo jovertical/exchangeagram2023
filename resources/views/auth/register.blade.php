@@ -25,6 +25,15 @@
 
         <x-text-input
             class="mt-2"
+            id="username"
+            name="username"
+            placeholder="Username"
+            value="{{ old('username') }}"
+            error="{{ $errors->first('username') }}"
+        ></x-text-input>
+
+        <x-text-input
+            class="mt-2"
             id="password"
             name="password"
             type="password"
