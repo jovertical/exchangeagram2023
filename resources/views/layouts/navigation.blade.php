@@ -178,6 +178,7 @@
                 <button
                     type="button"
                     class="rounded-full bg-transparent text-gray-900 focus:outline-none"
+                    @click="showNewPostModal = true"
                 >
                     <span class="sr-only">Create post</span>
                     <svg
