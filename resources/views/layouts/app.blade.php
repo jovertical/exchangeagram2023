@@ -15,7 +15,7 @@
 
             <!-- Page Content -->
             <main>
-                <div class="max-w-2xl w-full h-full mx-auto py-8">
+                <div class="max-w-5xl w-full h-full mx-auto py-8">
                     {{ $slot }}
                 </div>
             </main>
