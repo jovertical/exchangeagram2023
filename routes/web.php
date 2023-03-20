@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserFollowsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,4 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
     Route::get('home', [HomeController::class, 'index'])->name('home');
+
+    Route::post('users/{user}/follows', [UserFollowsController::class, 'store'])->name('users.follows.store');
+    Route::delete('users/{user}/follows', [UserFollowsController::class, 'destroy'])->name('users.follows.destroy');
 });

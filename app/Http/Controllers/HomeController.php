@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
-
 class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
+        $posts = request()->user()->feed;
+
+        $followable = request()->user()->followable();
 
         return view('home', [
             'posts' => $posts,
+            'followable' => $followable,
         ]);
     }
 }

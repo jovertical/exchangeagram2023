@@ -1,3 +1,5 @@
+@props(['posts' => []])
+
 <!-- Post listing -->
 <div class="mt-4">
     <ul class="space-y-4" role="list">

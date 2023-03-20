@@ -35,14 +35,52 @@
                     </a>
 
                     <div class="ml-4">
-                        <button class="text-sm font-semibold text-blue-500 hover:text-blue-900"
-                            type="button">
-                            Follow
-                        </button>
+                        @if (!Auth::user()->following($user))
+                            <button class="text-sm font-semibold text-blue-500 hover:text-blue-900"
+                                type="button" onclick="follow('{{ $user->id }}')">
+                                Follow
+                            </button>
+                        @else
+                            <button class="text-sm font-semibold text-red-500 hover:text-red-900"
+                                type="button" onclick="unfollow('{{ $user->id }}')">
+                                Unfollow
+                            </button>
+                        @endif
                     </div>
                 </div>
             </li>
         @endforeach
     </ul>
     <!--/. Suggested to follow > accounts list -->
+
+    <!-- Follow user form -->
+    <form class="hidden" id="form-users.follow.store" method="POST">
+        @csrf
+    </form>
+
+    <!--/. Unfollow user form -->
+    <form class="hidden" id="form-users.follow.destroy" method="POST">
+        @csrf
+        @method('DELETE')
+    </form>
 </nav>
+
+@section('scripts')
+    <script>
+        function follow(user) {
+            const form = document.getElementById('form-users.follow.store')
+
+            form.action = '/users/' + user + '/follows';
+
+            form.submit();
+        }
+
+        function unfollow(user) {
+            const form = document.getElementById('form-users.follow.destroy')
+
+            form.action = '/users/' + user + '/follows';
+
+            form.submit();
+        }
+    </script>
+@endsection

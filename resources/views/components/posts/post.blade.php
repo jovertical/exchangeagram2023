@@ -1,4 +1,4 @@
-@props(['post' => $post])
+@props(['post' => null])
 
 <li class="bg-white">
     <article>
