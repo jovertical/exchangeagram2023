@@ -20,7 +20,7 @@
             <!-- Post listing -->
             <div class="mt-4">
                 <ul class="space-y-4" role="list">
-                    @foreach (range(1, 5) as $n)
+                    @foreach ($posts as $post)
                         <li class="bg-white">
                             <article>
                                 <div>
@@ -30,7 +30,7 @@
                                         <div
                                             class="flex h-10 w-10 flex-none rounded-full bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-[2px]">
                                             <img class="h-full w-full rounded-full bg-white p-[2px]"
-                                                src="{{ 'https://i.pravatar.cc/300?u=' . $n }}"
+                                                src="{{ $post->author->avatar }}"
                                                 alt="{{ $n }}">
                                         </div>
 
@@ -63,7 +63,7 @@
                                     <!-- Post image -->
                                     <div>
                                         <img class="h-64 w-full object-cover object-center"
-                                            src="{{ 'https://source.unsplash.com/random?q=80&h=256&w=672?ixid=' . Str::random(8) }}"
+                                            src="{{ $post->photo }}"
                                             alt="">
                                     </div>
                                     <!--/. Post image -->
@@ -189,12 +189,10 @@
                                             <div>
                                                 <p class="text-sm">
                                                     <strong
-                                                        class="font-medium text-gray-800">{{ Str::random(12) }}</strong>
+                                                        class="font-medium text-gray-800">{{ $post->author->username }}</strong>
 
                                                     <span class="text-gray-700">
-                                                        lorem ipsum dolor sit amet consectetur
-                                                        adipisicing
-                                                        elit. Quisquam, quod.
+                                                        {{ $post->caption }}
                                                     </span>
                                                 </p>
                                             </div>
@@ -210,7 +208,7 @@
                                             <!-- Post content > date -->
                                             <div>
                                                 <p class="text-sm font-medium text-gray-500">
-                                                    {{ now()->subHours(rand(1, 24))->diffForHumans() }}
+                                                    {{ $post->created_at->diffForHumans() }}
                                                 </p>
                                             </div>
                                         </div>
